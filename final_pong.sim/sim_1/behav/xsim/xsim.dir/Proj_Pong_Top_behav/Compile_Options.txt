@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "Proj_Pong_Top_behav" "xil_defaultlib.Proj_Pong_Top" "xil_defaultlib.glbl" -log "elaborate.log" 

@@ -1,0 +1,13 @@
+0.7
+2020.2
+May  7 2023
+15:24:31
+D:/Vivado_Proj/final_pong/final_pong.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Debounce_Switch.v,1702022607,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Pong_Ball_Ctrl.v,,Debounce_Switch,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Pong_Ball_Ctrl.v,1702022509,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Pong_Paddle_Ctrl.v,,Pong_Ball_Ctrl,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Pong_Paddle_Ctrl.v,1702022496,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Pong_Top.v,,Pong_Paddle_Ctrl,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Pong_Top.v,1702022466,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Sync_To_Count.v,,Pong_Top,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Proj_Pong_Top.v,1702024433,verilog,,,,Proj_Pong_Top,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Sync_To_Count.v,1702022835,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/VGA_Sync_Porch.v,,Sync_To_Count,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/VGA_Sync_Porch.v,1702023175,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/VGA_Sync_Pulses.v,,VGA_Sync_Porch,,,,,,,,
+D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/VGA_Sync_Pulses.v,1702022818,verilog,,D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/Proj_Pong_Top.v,,VGA_Sync_Pulses,,,,,,,,

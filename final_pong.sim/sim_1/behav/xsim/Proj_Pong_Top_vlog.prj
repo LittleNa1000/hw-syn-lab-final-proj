@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../final_pong.srcs/sources_1/new/Debounce_Switch.v" \
+"../../../../final_pong.srcs/sources_1/new/Pong_Ball_Ctrl.v" \
+"../../../../final_pong.srcs/sources_1/new/Pong_Paddle_Ctrl.v" \
+"../../../../final_pong.srcs/sources_1/new/Pong_Top.v" \
+"../../../../final_pong.srcs/sources_1/new/Sync_To_Count.v" \
+"../../../../final_pong.srcs/sources_1/new/VGA_Sync_Porch.v" \
+"../../../../final_pong.srcs/sources_1/new/VGA_Sync_Pulses.v" \
+"../../../../final_pong.srcs/sources_1/new/Proj_Pong_Top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
