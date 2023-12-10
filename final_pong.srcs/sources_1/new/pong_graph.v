@@ -30,9 +30,17 @@ module pong_graph(
     input [9:0] y,
     output graph_on,
     output reg hit, miss,   // ball hit or miss
-    output reg [11:0] graph_rgb
+    output reg hit_2, miss_2,   // ball hit or miss
+    output reg [11:0] graph_rgb,
+    output wire [9:0] pos,
+    output reg [3:0] sc,
+    input wire [7:0] char,
+    input wire received,
+    input wire [1:0] press,
+    input wire [1:0] press_2,
+    input wire [7:0] total
     );
-    
+    reg [3:0] sc_next;
     // maximum x, y values in display area
     parameter X_MAX = 639;
     parameter Y_MAX = 479;
@@ -44,11 +52,11 @@ module pong_graph(
     
     // WALLS
     // LEFT wall boundaries
-    parameter L_WALL_L = 32;    
-    parameter L_WALL_R = 39;    // 8 pixels wide
+//    parameter L_WALL_L = 10;    
+//    parameter L_WALL_R = 17;    // 8 pixels wide
     // TOP wall boundaries
-    parameter T_WALL_T = 64;    
-    parameter T_WALL_B = 71;    // 8 pixels wide
+    parameter T_WALL_T = 33;    
+    parameter T_WALL_B = 40;    // 8 pixels wide
     // BOTTOM wall boundaries
     parameter B_WALL_T = 472;    
     parameter B_WALL_B = 479;    // 8 pixels wide
@@ -58,13 +66,18 @@ module pong_graph(
     // PADDLE
     // paddle horizontal boundaries
     parameter X_PAD_L = 600;
-    parameter X_PAD_R = 603;    // 4 pixels wide
+    parameter X_PAD_R = 608;    // 4 pixels wide
+    parameter X_PAD_L_2 = 31;
+    parameter X_PAD_R_2 = 39;    // 4 pixels wide
     // paddle vertical boundary signals
     wire [9:0] y_pad_t, y_pad_b;
-    parameter PAD_HEIGHT = 72;  // 72 pixels high
+    wire [9:0] y_pad_t_2, y_pad_b_2;
+    parameter PAD_HEIGHT = 108;  // 72 pixels high
     // register to track top boundary and buffer
     reg [9:0] y_pad_reg = 204;      // Paddle starting position
     reg [9:0] y_pad_next;
+    reg [9:0] y_pad_reg_2 = 204;      // Paddle starting position
+    reg [9:0] y_pad_next_2;
     // paddle moving velocity when a button is pressed
     parameter PAD_VELOCITY = 3;     // change to speed up or slow down paddle movement
     
@@ -90,23 +103,27 @@ module pong_graph(
     wire [2:0] rom_addr, rom_col;   // 3-bit rom address and rom column
     reg [7:0] rom_data;             // data at current rom address
     wire rom_bit;                   // signify when rom data is 1 or 0 for ball rgb control
-    
+    assign pos = x_ball_l;
     
     // Register Control
     always @(posedge clk or posedge reset)
         if(reset) begin
             y_pad_reg <= 204;
+            y_pad_reg_2 <= 204;
             x_ball_reg <= 0;
             y_ball_reg <= 0;
             x_delta_reg <= 10'h002;
             y_delta_reg <= 10'h002;
+            sc <= 0;
         end
         else begin
             y_pad_reg <= y_pad_next;
+            y_pad_reg_2 <= y_pad_next_2;
             x_ball_reg <= x_ball_next;
             y_ball_reg <= y_ball_next;
             x_delta_reg <= x_delta_next;
             y_delta_reg <= y_delta_next;
+            sc <= sc_next;
         end
     
     
@@ -125,21 +142,22 @@ module pong_graph(
     
     
     // OBJECT STATUS SIGNALS
-    wire l_wall_on, t_wall_on, b_wall_on, pad_on, sq_ball_on, ball_on;
-    wire [11:0] wall_rgb, pad_rgb, ball_rgb, bg_rgb;
+    wire l_wall_on, t_wall_on, b_wall_on, pad_on, sq_ball_on, ball_on, pad_on_2;
+    wire [11:0] wall_rgb, pad_rgb, ball_rgb, bg_rgb, pad_rgb_2;
     
     
     // pixel within wall boundaries
-    assign l_wall_on = ((L_WALL_L <= x) && (x <= L_WALL_R)) ? 1 : 0;
+//    assign l_wall_on = ((L_WALL_L <= x) && (x <= L_WALL_R)) ? 1 : 0;
     assign t_wall_on = ((T_WALL_T <= y) && (y <= T_WALL_B)) ? 1 : 0;
     assign b_wall_on = ((B_WALL_T <= y) && (y <= B_WALL_B)) ? 1 : 0;
     
-    
+    // rgb
     // assign object colors
-    assign wall_rgb   = 12'h00F;    // blue walls
-    assign pad_rgb    = 12'h00F;    // blue paddle
-    assign ball_rgb   = 12'hF00;    // red ball
-    assign bg_rgb     = 12'h0FF;    // aqua background
+    assign wall_rgb   = 12'hF75;    // blue walls
+    assign pad_rgb    = 12'hFC9;    // blue paddle
+    assign pad_rgb_2    = 12'hFC9;    // blue paddle
+    assign ball_rgb   = 12'h033;    // red ball
+    assign bg_rgb     = 12'hFFD;    // background
     
     
     // paddle 
@@ -147,17 +165,31 @@ module pong_graph(
     assign y_pad_b = y_pad_t + PAD_HEIGHT - 1;              // paddle bottom position
     assign pad_on = (X_PAD_L <= x) && (x <= X_PAD_R) &&     // pixel within paddle boundaries
                     (y_pad_t <= y) && (y <= y_pad_b);
+    assign y_pad_t_2 = y_pad_reg_2;                             // paddle top position
+    assign y_pad_b_2 = y_pad_t_2 + PAD_HEIGHT - 1;              // paddle bottom position
+    assign pad_on_2 = (X_PAD_L_2 <= x) && (x <= X_PAD_R_2) &&     // pixel within paddle boundaries
+                    (y_pad_t_2 <= y) && (y <= y_pad_b_2);
        
                     
     // Paddle Control
     always @* begin
         y_pad_next = y_pad_reg;     // no move
-        
-        if(refresh_tick)
-            if(btn[1] & (y_pad_b < (B_WALL_T - 1 - PAD_VELOCITY)))
+        y_pad_next_2 = y_pad_reg_2;
+        if(refresh_tick) begin
+//            if(btn[1] & (y_pad_b < (B_WALL_T - 1 - PAD_VELOCITY)))
+//              if(~(last_char==char) && char == 8'h73 && (y_pad_b < (B_WALL_T - 1 - PAD_VELOCITY)))
+              if(press==2'b10 && (y_pad_b < (B_WALL_T - 1 - PAD_VELOCITY)))
                 y_pad_next = y_pad_reg + PAD_VELOCITY;  // move down
-            else if(btn[0] & (y_pad_t > (T_WALL_B - 1 - PAD_VELOCITY)))
+//            else if(btn[0] & (y_pad_t > (T_WALL_B - 1 - PAD_VELOCITY)))
+//              else if(~(last_char==char) && char == 8'h77 && (y_pad_t > (T_WALL_B - 1 - PAD_VELOCITY)))
+              else if(press==2'b01 && (y_pad_t > (T_WALL_B - 1 - PAD_VELOCITY)))
                 y_pad_next = y_pad_reg - PAD_VELOCITY;  // move up
+              if(press_2==2'b10 && (y_pad_b_2 < (B_WALL_T - 1 - PAD_VELOCITY)))
+                y_pad_next_2 = y_pad_reg_2 + PAD_VELOCITY;  // move down
+              else if(press_2==2'b01 && (y_pad_t_2 > (T_WALL_B - 1 - PAD_VELOCITY)))
+                y_pad_next_2 = y_pad_reg_2 - PAD_VELOCITY;  // move up
+//        last_rec = received;
+        end
     end
     
     
@@ -187,12 +219,14 @@ module pong_graph(
     always @* begin
         hit = 1'b0;
         miss = 1'b0;
+        hit_2 = 1'b0;
+        miss_2 = 1'b0;
         x_delta_next = x_delta_reg;
         y_delta_next = y_delta_reg;
-        
+        sc_next = sc;
         if(gra_still) begin
-            x_delta_next = BALL_VELOCITY_NEG;
-            y_delta_next = BALL_VELOCITY_POS;
+            x_delta_next = (clk) ? BALL_VELOCITY_NEG : BALL_VELOCITY_POS;
+            y_delta_next = (clk) ? BALL_VELOCITY_NEG : BALL_VELOCITY_POS;
         end
         
         else if(y_ball_t < T_WALL_B)                   // reach top
@@ -201,21 +235,29 @@ module pong_graph(
         else if(y_ball_b > (B_WALL_T))         // reach bottom wall
             y_delta_next = BALL_VELOCITY_NEG;   // move up
         
-        else if(x_ball_l <= L_WALL_R)           // reach left wall
-            x_delta_next = BALL_VELOCITY_POS;   // move right
+//        else if(x_ball_l <= L_WALL_R)           // reach left wall
+//            x_delta_next = BALL_VELOCITY_POS;   // move right
         
         else if((X_PAD_L <= x_ball_r) && (x_ball_r <= X_PAD_R) &&
                 (y_pad_t <= y_ball_b) && (y_ball_t <= y_pad_b)) begin
                     x_delta_next = BALL_VELOCITY_NEG;
                     hit = 1'b1;         
         end
-        
+//        else if ((X_PAD_L_2 <= x_ball_l) && (x_ball_l <= X_PAD_R_2) &&
+        else if ((X_PAD_L_2 <= x_ball_l) && (x_ball_l <= X_PAD_R_2) &&
+                 (y_pad_t_2 <= y_ball_b) && (y_ball_t <= y_pad_b_2)) begin
+                    x_delta_next = BALL_VELOCITY_POS;
+                    hit_2 = 1'b1;
+                    sc_next = sc + 1;
+        end
+        else if(x_ball_l <= 2)
+            miss_2 = 1'b1;
         else if(x_ball_r > X_MAX)
             miss = 1'b1;
     end                    
     
     // output status signal for graphics 
-    assign graph_on = l_wall_on | t_wall_on | b_wall_on | pad_on | ball_on;
+    assign graph_on = l_wall_on | t_wall_on | b_wall_on | pad_on | ball_on | pad_on_2;
     
     
     // rgb multiplexing circuit
@@ -227,6 +269,8 @@ module pong_graph(
                 graph_rgb = wall_rgb;     // wall color
             else if(pad_on)
                 graph_rgb = pad_rgb;      // paddle color
+            else if(pad_on_2)
+                graph_rgb = pad_rgb_2;      // paddle color
             else if(ball_on)
                 graph_rgb = ball_rgb;     // ball color
             else

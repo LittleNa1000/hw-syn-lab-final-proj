@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -87,10 +88,17 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/ascii_rom.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/baudrate_gen.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/clockDiv.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/hexTo7Seg.v
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/m100_counter.v
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_graph.v
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_text.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/timer.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_rx.v
+  D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_tx.v
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/vga_controller.v
   D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_top.v
 }

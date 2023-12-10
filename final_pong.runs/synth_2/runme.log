@@ -1,0 +1,345 @@
+
+*** Running vivado
+    with args -log pong_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pong_top.tcl
+
+
+ECHO is off.
+ECHO is off.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source pong_top.tcl -notrace
+Command: synth_design -top pong_top -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 36548
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'clkDiv' is not allowed [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/clockDiv.v:28]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'segments' is not allowed [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/hexTo7Seg.v:28]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1247.434 ; gain = 410.672
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'pong_top' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'clockDiv' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/clockDiv.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'clockDiv' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/clockDiv.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uart' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart.v:23]
+INFO: [Synth 8-6157] synthesizing module 'baudrate_gen' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/baudrate_gen.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'baudrate_gen' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/baudrate_gen.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_rx.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_rx.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_rx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_tx.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_tx.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart_tx.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/uart.v:23]
+INFO: [Synth 8-6157] synthesizing module 'quad7Seg' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hexTo7Seg' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/hexTo7Seg.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hexTo7Seg' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/hexTo7Seg.v:23]
+WARNING: [Synth 8-567] referenced signal 'num0' should be on the sensitivity list [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v:65]
+WARNING: [Synth 8-567] referenced signal 'num1' should be on the sensitivity list [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v:65]
+WARNING: [Synth 8-567] referenced signal 'num2' should be on the sensitivity list [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v:65]
+WARNING: [Synth 8-567] referenced signal 'num3' should be on the sensitivity list [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v:65]
+INFO: [Synth 8-6155] done synthesizing module 'quad7Seg' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/quad7Seg.v:23]
+INFO: [Synth 8-6157] synthesizing module 'vga_controller' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/vga_controller.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/vga_controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pong_text' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_text.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ascii_rom' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/ascii_rom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ascii_rom' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/ascii_rom.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_text.v:107]
+INFO: [Synth 8-6155] done synthesizing module 'pong_text' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_text.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pong_graph' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_graph.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'pong_graph' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_graph.v:23]
+INFO: [Synth 8-6157] synthesizing module 'timer' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/timer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'timer' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/timer.v:23]
+INFO: [Synth 8-6157] synthesizing module 'm100_counter' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/m100_counter.v:23]
+WARNING: [Synth 8-6090] variable 'dig0_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/m100_counter.v:51]
+WARNING: [Synth 8-6090] variable 'dig1_next' is written by both blocking and non-blocking assignments, entire logic could be removed [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/m100_counter.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'm100_counter' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/m100_counter.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'pong_top' (0#1) [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_top.v:23]
+WARNING: [Synth 8-6014] Unused sequential element last_rec_reg was removed.  [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_graph.v:49]
+WARNING: [Synth 8-7137] Register last_rec_reg in module pong_top has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_top.v:159]
+WARNING: [Synth 8-7129] Port btn[1] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[0] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[7] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[6] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[5] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[4] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[3] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[2] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[1] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char[0] in module pong_graph is either unconnected or has no load
+WARNING: [Synth 8-7129] Port received in module pong_graph is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1349.941 ; gain = 513.180
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1349.941 ; gain = 513.180
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1349.941 ; gain = 513.180
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1349.941 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Vivado_Proj/final_pong/final_pong.srcs/constrs_1/new/const.xdc]
+Finished Parsing XDC File [D:/Vivado_Proj/final_pong/final_pong.srcs/constrs_1/new/const.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Vivado_Proj/final_pong/final_pong.srcs/constrs_1/new/const.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pong_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pong_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1448.543 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1448.543 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'pong_top'
+WARNING: [Synth 8-327] inferring latch for variable 'char_addr_r_reg' [D:/Vivado_Proj/final_pong/final_pong.srcs/sources_1/new/pong_text.v:109]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 newgame |                               00 |                               00
+                    play |                               01 |                               01
+                    over |                               10 |                               11
+                 newball |                               11 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'pong_top'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 8     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
+	   3 Input    3 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 3     
++---Registers : 
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 10    
+	                8 Bit    Registers := 5     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 32    
++---ROMs : 
+	                    ROMs := 1     
++---Muxes : 
+	   2 Input   12 Bit        Muxes := 4     
+	   3 Input   12 Bit        Muxes := 1     
+	   6 Input   12 Bit        Muxes := 1     
+	   4 Input   12 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 4     
+	  10 Input    8 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 1     
+	  14 Input    7 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 7     
+	   2 Input    3 Bit        Muxes := 5     
+	   2 Input    2 Bit        Muxes := 4     
+	   3 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 19    
+	  10 Input    1 Bit        Muxes := 2     
+	   4 Input    1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design pong_top has port dp driven by constant 0
+WARNING: [Synth 8-7129] Port btn[1] in module pong_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn[0] in module pong_top is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[6]) is unused and will be removed from module pong_top.
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[5]) is unused and will be removed from module pong_top.
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[4]) is unused and will be removed from module pong_top.
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[3]) is unused and will be removed from module pong_top.
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[2]) is unused and will be removed from module pong_top.
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[1]) is unused and will be removed from module pong_top.
+WARNING: [Synth 8-3332] Sequential element (text_unit/char_addr_r_reg[0]) is unused and will be removed from module pong_top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+-----------------------------------+---------------+----------------+
+|Module Name | RTL Object                        | Depth x Width | Implemented As | 
++------------+-----------------------------------+---------------+----------------+
+|pong_text   | char_addr_r0                      | 256x7         | LUT            | 
+|pong_top    | text_unit/ascii_unit/addr_reg_reg | 2048x8        | Block RAM      | 
+|pong_top    | text_unit/char_addr_r0            | 256x7         | LUT            | 
++------------+-----------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance text_unit/ascii_unit/addr_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     2|
+|2     |CARRY4   |    52|
+|3     |LUT1     |    29|
+|4     |LUT2     |    54|
+|5     |LUT3     |    54|
+|6     |LUT4     |   116|
+|7     |LUT5     |    79|
+|8     |LUT6     |   150|
+|9     |MUXF7    |     2|
+|10    |RAMB18E1 |     1|
+|11    |FDCE     |    93|
+|12    |FDPE     |    15|
+|13    |FDRE     |   107|
+|14    |IBUF     |     3|
+|15    |OBUF     |    27|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 12 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:18 . Memory (MB): peak = 1448.543 ; gain = 513.180
+Synthesis Optimization Complete : Time (s): cpu = 00:00:02 ; elapsed = 00:00:19 . Memory (MB): peak = 1448.543 ; gain = 611.781
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1448.543 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1448.543 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 7d6a8aaf
+INFO: [Common 17-83] Releasing license: Synthesis
+49 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 1448.543 ; gain = 1015.148
+INFO: [Common 17-1381] The checkpoint 'D:/Vivado_Proj/final_pong/final_pong.runs/synth_2/pong_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file pong_top_utilization_synth.rpt -pb pong_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 10 12:40:06 2023...
