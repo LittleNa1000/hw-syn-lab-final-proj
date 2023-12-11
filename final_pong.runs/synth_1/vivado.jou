@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Dec 11 03:23:01 2023
-# Process ID: 50576
+# Start of session at: Mon Dec 11 21:25:05 2023
+# Process ID: 38560
 # Current directory: D:/Vivado_Proj/final_pong/final_pong.runs/synth_1
 # Command line: vivado.exe -log pong_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pong_top.tcl
 # Log file: D:/Vivado_Proj/final_pong/final_pong.runs/synth_1/pong_top.vds

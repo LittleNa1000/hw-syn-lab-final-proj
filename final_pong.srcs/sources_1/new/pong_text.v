@@ -73,7 +73,7 @@ module pong_text(
         5'h0E : char_addr_s = 7'h4C;     // L
         5'h0F : char_addr_s = 7'h4C;     // L
         5'h10 : char_addr_s = 7'h3A;     // :
-        5'h11 : char_addr_s = {3'b011, ball_2[3:0]};     // 0
+        5'h11 : char_addr_s = {3'b011, ball_2[3:0]-4'h01};     // 0
     endcase
     
     // ---------------------------------------------------------------------------
@@ -105,7 +105,7 @@ module pong_text(
         6'h22 : char_addr_s_2 = 7'h4C;     // L
         6'h23 : char_addr_s_2 = 7'h4C;     // L
         6'h24 : char_addr_s_2 = 7'h3A;     // :
-        6'h25 : char_addr_s_2 = {3'b011, ball[3:0]};     // 0
+        6'h25 : char_addr_s_2 = {3'b011, ball[3:0]-4'h01};     // 0
     endcase
     
     // --------------------------------------------------------------------------
@@ -220,7 +220,7 @@ module pong_text(
     always @*
         case(x[8:5])
             4'h6 : char_addr_o = 7'h50;     // A
-            4'h7 : char_addr_o = (ball == 0) ? 7'h32 : 7'h31;     // M
+            4'h7 : char_addr_o = (ball == 0) ? 7'h31 : 7'h32;     // M
             4'h8 : char_addr_o = 7'h00;     // E
             4'h9 : char_addr_o = 7'h57;     //
             4'hA : char_addr_o = 7'h49;     // O

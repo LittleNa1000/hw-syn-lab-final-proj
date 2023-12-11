@@ -190,8 +190,8 @@ module pong_top(
         
         case(state_reg)
             newgame: begin
-                ball_next =   8'b00000010;          // three balls
-                ball_next_2 = 8'b00000010;          // three balls
+                ball_next =   8'b00000101;          // three balls
+                ball_next_2 = 8'b00000101;          // three balls
                 d_clr = 1'b1;               // clear score
                 
                 if((~last_rec & received)&&(data_out <= 8'h7A && data_out >= 8'h41)) begin      // button pressed
@@ -212,7 +212,7 @@ module pong_top(
 //                    sc_next = sc + 1;
                 end
                 else if(miss_2) begin
-                    if(ball_reg_2 == 0)
+                    if(ball_reg_2 == 1)
                         state_next = over;
                     
                     else
@@ -222,7 +222,7 @@ module pong_top(
                     ball_next_2 = ball_reg_2 - 1;
                 end
                 else if(miss) begin
-                    if(ball_reg == 0)
+                    if(ball_reg == 1)
                         state_next = over;
                     
                     else

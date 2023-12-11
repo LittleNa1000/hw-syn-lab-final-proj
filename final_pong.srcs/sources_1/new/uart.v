@@ -47,16 +47,17 @@ module uart(
 //        if ((press == 2'b01 || press == 2'b10)) counter = counter + 1; else counter = 0;
 //        if ((counter >= 24000) && (press == 2'b01 || press == 2'b10)) begin counter = 0; press = 2'b11; end
 //        if (counter % 24000 == 0) begin press[1] = ~press[1]; end
+//      73 s    77 w    69 i    6B k
         if (~last_rec & received) begin
             data_in = data_out;
             case (data_out)
-                8'h77: press = 2'b01;
-                8'h73: press = 2'b10;
+                8'h69: press = 2'b01;
+                8'h6B: press = 2'b10;
 //                default: press = 2'b00;
             endcase
             case (data_out)
-                8'h69: press_2 = 2'b01;
-                8'h6B: press_2 = 2'b10;
+                8'h77: press_2 = 2'b01; 
+                8'h73: press_2 = 2'b10; 
 //                default: press_2 = 2'b00;
             endcase
             if (data_in <= 8'h7A && data_in >= 8'h41) en = 1;
